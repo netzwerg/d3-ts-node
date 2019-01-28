@@ -1,0 +1,31 @@
+{
+  "name": "d3-ts-node",
+  "version": "0.1.0",
+  "description": "Data wrangling with D3.js in TypeScript (on Node) ",
+  "author": "Rahel Lüthy",
+  "license": "MIT",
+  "homepage": "https://github.com/netzwerg/d3-ts-node#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/netzwerg/d3-ts-node.git"
+  },
+  "keywords": [
+    "Data Wrangling",
+    "Data Science",
+    "D3.js",
+    "TypeScript",
+    "Node.js"
+  ],
+  "dependencies": {
+    "d3": "^5.7.0"
+  },
+  "scripts": {
+    "start": "npx ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/d3": "^5.7.0",
+    "@types/node": "^10.12.18",
+    "ts-node": "^8.0.2",
+    "typescript": "^3.2.4"
+  }
+}
