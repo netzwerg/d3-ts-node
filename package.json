@@ -19,13 +19,29 @@
   "dependencies": {
     "d3": "^5.7.0"
   },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "scripts": {
     "start": "npx ts-node src/index.ts"
   },
   "devDependencies": {
     "@types/d3": "^5.7.0",
     "@types/node": "^10.12.18",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.1",
+    "prettier": "^1.16.1",
+    "tslint": "^5.12.1",
+    "tslint-config-prettier": "^1.17.0",
     "ts-node": "^8.0.2",
     "typescript": "^3.2.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
