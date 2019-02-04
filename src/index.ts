@@ -1,5 +1,6 @@
 import { csvFormat, csvParse, DSVRowArray, DSVRowString, format, timeFormat, timeParse } from 'd3'
 import * as fs from 'fs'
+import * as assert from 'assert'
 
 /* ·················································································································· */
 /*  Parsing (Input)
@@ -82,6 +83,7 @@ const formatHeight = (h: number) => Math.round(h).toString()
 const formatWeight = (w: number) => Math.round(w).toString()
 
 type ShirtSize = 'S' | 'M' | 'L'
+
 const formatShirtSize = (isS: boolean, isM: boolean, isL: boolean): ShirtSize => {
     const defaultShirtSize = 'M'
     return isS ? 'S' : isM ? 'M' : isL ? 'L' : defaultShirtSize
@@ -137,6 +139,9 @@ const formattedPersons: FormattedPerson[] = parsedPersons.map(person => {
 /* ·················································································································· */
 
 const actual: string = csvFormat(formattedPersons)
+
+assert(actual === fs.readFileSync('data/persons-expected.csv', 'utf8'))
+
 fs.writeFileSync('data/persons-actual.csv', actual)
 
 console.log('-- DONE (waiting for changes) ---')
